@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 2021_11_08_141702) do
     t.text "description"
     t.integer "price"
     t.string "location"
+    t.bigint "administrator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["administrator_id"], name: "index_events_on_administrator_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,10 +44,8 @@ ActiveRecord::Schema.define(version: 2021_11_08_141702) do
     t.text "description"
     t.string "first_name"
     t.string "last_name"
-    t.bigint "administrator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["administrator_id"], name: "index_users_on_administrator_id"
   end
 
 end
