@@ -1,7 +1,7 @@
 	<div class="jumbotron p-3 p-md-5 text-white d-flex align-items-center", style="background-image: url(https://eventbrite-s3.s3.amazonaws.com/marketing/NIYT_home_headers/7316_NIYT+home+header_tablet_1067x470.jpg); background-size: cover; height: 25em;">
         <div class="col-md-6 px-0 ms-5">
-          <h1 class="display-4 font-weight-bold">Mon Super Site d'Events</h1>
-          <p class="lead my-3">Bonjour à toi nouveau visiteur, bienvenue sur le site le plus ragot du tieks .. Premiers sur l'infox</p>
+          <h1 class="display-4 fw-bolder">Mon Super Site d'Events</h1>
+          <p class="lead my-3 fw-bold">Bonjour à toi nouveau visiteur, bienvenue sur le site le plus ragot du tieks .. Premiers sur l'infox</p>
           <a class="btn btn-warning" href="/events/new" role="button">Poste ici tes meilleurs events</a>
         </div>
       </div>
@@ -14,7 +14,7 @@
 	          	<div class="card-body">
 	            <h3><%= event.title %></h3>
 	            <p>proposé par <a href="/users/<%= event.administrator.id %>"><%= event.administrator.first_name %> <%= event.administrator.last_name %></a></p>
-	            <p><a class="btn btn-secondary" href="<%= event_path(event.id)%>" role="button">Voir le potin »</a></p>
+	            <p><a class="btn btn-secondary" href="<%= event_path(event.id)%>" role="button">Plus d'infos »</a></p>
 	            </div>
 	          </div>
 	        </div>

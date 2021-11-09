@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  #before_action :authenticate_user!, only: [:create, :new]
+  before_action :authenticate_user!, only: [:create, :new]
 
   def show
     @event = Event.find(params[:id])
