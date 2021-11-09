@@ -17,4 +17,8 @@ class Event < ApplicationRecord
       return true
     end
   end
+
+  def end_date
+    return start_date + duration
+  end
 end
