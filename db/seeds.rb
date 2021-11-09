@@ -9,5 +9,5 @@
 User.destroy_all
 
 10.times do |i|
-	User.create(email: "togne0#{i}@yopmail.com")
+	User.create(email: "togne0#{i}@yopmail.com", password: "123456789")
 end
