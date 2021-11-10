@@ -12,4 +12,4 @@
 
 ## For production mode
 
-Go to https://git.heroku.com/eventbrite-like-togne.git
+Go to https://eventbrite-like-togne.herokuapp.com/
