@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
+  before_action :is_current_user, only: [:create, :new]
 
   def show
     @event = Event.find(params[:id])
@@ -54,6 +55,14 @@ class EventsController < ApplicationController
 
   def event_params
     event_params = params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location)
+  end
+
+  def is_current_user
+    @user = current_user
+    unless @user.id == Event.find(params[:id]).administrator
+      flash[:danger] = "Please log in."
+      redirect_to root_path
+    end
   end
 
 end

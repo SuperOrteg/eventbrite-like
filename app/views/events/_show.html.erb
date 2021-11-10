@@ -12,12 +12,6 @@
 		    <p class="card-text"><%= @event.start_date.strftime("Commence le %d %b %Y à %H:%M") %><%= @event.end_date.strftime(", fini le %d %b %Y à %H:%M") %></p>
 		    <p class="card-text">Lieu : <%= @event.location %></p>
 		    <p class="card-text">Prix : <%= @event.price %> €</p>
-		    <a href="/" class="btn btn-primary">Home</a>
-		    <% if current_user.nil? == false && current_user.id == @event.administrator.id %>
-		    <a href="/events/<%= @event.id %>/attendances" class="btn btn-primary">Espace événement</a>
-		    <% elsif current_user.nil? == false && current_user.id != @event.administrator.id %>
-		    <a class="btn btn-warning" href="/events/<%= @event.id %>/attendances/new" role="button">Participer</a>
-		    <% end %>
 		  </div>
 		  </div>
 		  <div class="card-footer text-muted text-center">

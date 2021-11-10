@@ -7,20 +7,30 @@
 		    <h5 class="card-title"><%= @event.title %></h5>
 		    <p class="card-text small">Description</p>
 		    <p class="card-text"><%= @event.description %></p>
-		    <p class="card-text small">Email de l'organisateur</p>
-		    <p class="card-text"><%= @event.administrator.email %></p>
 		    <p class="card-text"><%= @event.start_date.strftime("Commence le %d %b %Y à %H:%M") %><%= @event.end_date.strftime(", fini le %d %b %Y à %H:%M") %></p>
 		    <p class="card-text">Lieu : <%= @event.location %></p>
 		    <p class="card-text">Prix : <%= @event.price %> €</p>
 		    <a href="/" class="btn btn-primary">Home</a>
-		    <% if current_user.nil? == false && current_user.id == @event.administrator.id %>
-		    <a href="/events/<%= @event.id %>/attendances" class="btn btn-primary">Espace événement</a>
-		    <% elsif current_user.nil? == false && current_user.id != @event.administrator.id %>
-		    <a class="btn btn-warning" href="/events/<%= @event.id %>/attendances/new" role="button">Participer</a>
-		    <% end %>
+		    <a href="/events/<%= @event.id %>/edit" class="btn btn-primary">Éditer</a>
+		    <%= button_to "Supprimer", @event, :method => :delete, class: "btn btn-danger mt-3" %>
 		  </div>
 		  </div>
 		  <div class="card-footer text-muted text-center">
 		    <%= @event.created_at.strftime("Créé le %d %b %Y à %H:%M") %>
 		  </div>
+	<% if @event.users.count > 0 %>
+  	<h2 class="my-4 text-center">Voici les participants de <%= @event.title %></h2>
+        <div class="row">
+	        <% @event.users.each do |attendant| %>
+	        <div class="col-md-6">
+	          <div class="card flex-md-row mb-4 shadow-sm h-md-250 text-center">
+	          	<div class="card-body">
+	            <h3><%= attendant.first_name %> <%= attendant.last_name %></h3>
+	            <p><%= attendant.email %></p>
+	            </div>
+	          </div>
+	        </div>
+	        <% end %>
+	    </div>
+	<% end %>
 </div>

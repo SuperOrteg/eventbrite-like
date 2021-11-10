@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 class="my-4 text-center">Profil</h2>
+	<h2 class="my-4 text-center">Mon Profil</h2>
 		<div class="card text-center">
 		  <div class="card-header">
 		  </div>
@@ -17,9 +17,9 @@
 		    <%= @user.created_at.strftime("Créé le %d %b %Y à %H:%M") %>
 		  </div>
 	<% if @event.count == 0 %>
-	<h2 class="my-4 text-center"><%= @user.first_name %> n'a pas d'événements</h2>
+	<h2 class="my-4 text-center">Vous n'avez pas d'événements</h2>
 	<% else %>
-  	<h2 class="my-4 text-center">Voici les événements de <%= @user.first_name %></h2>
+  	<h2 class="my-4 text-center">Voici vos événements</h2>
         <div class="row">
 	        <% @event.each do |event| %>
 	        <div class="col-md-6">
