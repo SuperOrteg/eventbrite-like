@@ -12,3 +12,4 @@ Event.destroy_all
 10.times do |i|
 	User.create(first_name: Faker::Name.first_name, last_name:Faker::Name.last_name, description: Faker::Movies::Lebowski.quote, email: "togne0#{i}@yopmail.com", password: "123456789")
 end
+
