@@ -14,7 +14,7 @@
 	          	<div class="card-body">
 	            <h3><%= event.title %></h3>
 	            <p>proposé par <a href="/users/<%= event.administrator.id %>"><%= event.administrator.first_name %> <%= event.administrator.last_name %></a></p>
-	            <p><a class="btn btn-secondary" href="<%= event_path(event.id)%>" role="button">Plus d'infos »</a></p>
+	            <p><a class="btn btn-dark" href="<%= event_path(event.id)%>" role="button">Plus d'infos »</a></p>
 	            </div>
 	          </div>
 	        </div>

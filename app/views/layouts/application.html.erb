@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse" id="navbarsExample04">
       </div>
     <% if user_signed_in? %>
-    <a class="btn btn-secondary me-2" href="<%= user_path(current_user.id)%>" role="button">Mon profil</a>
+    <a class="btn btn-dark me-2" href="<%= user_path(current_user.id)%>" role="button">Mon profil</a>
     <%= button_to "Se déconnecter", destroy_user_session_path, :method => :delete, class: "btn btn-danger me-2" %>
     <% else %>
     <a class="btn btn-secondary me-2" href="/users/sign_up" role="button">S'inscrire</a>

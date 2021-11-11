@@ -28,11 +28,11 @@
 			<%= f.datetime_select :start_date, :order => [:day, :month, :year], class: 'form-control btn-check' %>
 			<br />
 
-		      <%= submit_tag "Modifier l'événement", class: 'btn btn-secondary mt-3' %>
+		      <%= submit_tag "Modifier l'événement", class: 'btn btn-dark mt-3' %>
 		    <% end %>
 		    <%= form_tag event_images_path(@event), multipart: true do %>
 			  <%= file_field_tag :image, class: 'form-control mt-3' %>
-			  <%= submit_tag "Mettre à jour l'image", class: 'btn btn-secondary mt-3' %>
+			  <%= submit_tag "Mettre à jour l'image", class: 'btn btn-dark mt-3' %>
 			<% end %>
         </div>
       </div>
