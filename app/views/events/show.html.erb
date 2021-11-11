@@ -1,15 +1,17 @@
 <div class="container">
 	<h2 class="my-4 text-center">Événement</h2>
 		<div class="card text-center">
-		  <div class="card-header">
-		  </div>
+		  <div class="card-header"></div>
+		  <% if @event.image.attached? %>
+		  <div class="card-img-top" style="height: 18rem; background-image: url(<%= url_for(@event.image) %>); background-size: cover;"></div>
+		  <% end %>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= @event.title %></h5>
 		    <p class="card-text small">Description</p>
 		    <p class="card-text"><%= @event.description %></p>
 		    <p class="card-text small">Email de l'organisateur</p>
 		    <p class="card-text"><%= @event.administrator.email %></p>
-		    <p class="card-text"><%= @event.start_date.strftime("Commence le %d %b %Y à %H:%M") %><%= @event.end_date.strftime(", fini le %d %b %Y à %H:%M") %></p>
+		    <p class="card-text"><%= @event.start_date.strftime("Commence le %d %b %Y à %H:%M") %>, et dure <%= @event.duration %> minutes</p>
 		    <p class="card-text">Lieu : <%= @event.location %></p>
 		    <p class="card-text">Prix : <%= @event.price %> €</p>
 		    <a href="/" class="btn btn-primary">Home</a>

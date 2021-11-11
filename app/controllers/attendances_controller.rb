@@ -4,19 +4,21 @@ class AttendancesController < ApplicationController
 
   def new
     @attendance = Attendance.new
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
   end
 
   def show
   end
 
   def index
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
   end
 
   def create
+    @amount = Event.find(params[:id]).price
+    @event = Event.find(params[:id])
     # Before the rescue, at the beginning of the method
-    @stripe_amount = @event.price
+    @stripe_amount = (@amount * 100).to_i
     begin
       customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -30,21 +32,18 @@ class AttendancesController < ApplicationController
       })
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_order_path
+      redirect_to attendance_path
     end
     # After the rescue, if the payment succeeded
-
+    @attendance = Attendance.create(stripe_customer_id: params[:id].to_s, user: current_user, event: @event)
+    redirect_to root_path
   end
 
   private
 
-  def attendance_params
-    attendance_params = params.require(:attendance).permit(:stripe_customer_id)
-  end
-
   def is_current_user
     @user = current_user
-    unless @user.id == Event.find(params[:id]).administrator.id
+    unless @user.id == Event.find(params[:event_id]).administrator.id
       flash[:danger] = "You don't have the permissions."
       redirect_to root_path
     end

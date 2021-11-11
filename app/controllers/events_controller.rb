@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
-  before_action :is_current_user, only: [:create, :new]
+  #before_action :is_current_user, only: [:create]
 
   def show
     @event = Event.find(params[:id])
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    event_params = params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location)
+    event_params = params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location, :image)
   end
 
   def is_current_user

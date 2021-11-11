@@ -20,6 +20,10 @@
 		      <%= f.text_field :location, class: 'form-control' %>
 		      <br />
 
+		      <%= label_tag 'Image' %>
+		      <%= f.file_field :image, class: 'form-control' %>
+		      <br />
+
 		      <%= label_tag 'Durée' %>
 		      <%= f.select :duration, options_for_select([["5 minutes", 5], ["10 minutes", 10], ["15 minutes", 15], ["20 minutes", 20], ["25 minutes", 25], ["30 minutes", 30], ["35 minutes", 35], ["40 minutes", 40], ["45 minutes", 45], ["50 minutes", 50], ["55 minutes", 55], ["60 minutes", 60]]), class: 'form-control btn-check' %>
 				<br /><br />

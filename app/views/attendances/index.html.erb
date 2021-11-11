@@ -3,6 +3,9 @@
 		<div class="card text-center">
 		  <div class="card-header">
 		  </div>
+		  <% if @event.image.attached? %>
+		  <div class="card-img-top" style="height: 18rem; background-image: url(<%= url_for(@event.image) %>); background-size: cover;"></div>
+		  <% end %>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= @event.title %></h5>
 		    <p class="card-text small">Description</p>

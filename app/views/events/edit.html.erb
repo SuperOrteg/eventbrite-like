@@ -30,6 +30,10 @@
 
 		      <%= submit_tag "Modifier l'événement", class: 'btn btn-secondary mt-3' %>
 		    <% end %>
+		    <%= form_tag event_images_path(@event), multipart: true do %>
+			  <%= file_field_tag :image, class: 'form-control mt-3' %>
+			  <%= submit_tag "Mettre à jour l'image", class: 'btn btn-secondary mt-3' %>
+			<% end %>
         </div>
       </div>
 	</div>
