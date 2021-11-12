@@ -1,6 +1,10 @@
 class AdminController < ApplicationController
   before_action :is_current_user, only: [:index]
 
+  def show
+    @events = Event.all
+  end
+  
   def index
     @users = User.all
   end

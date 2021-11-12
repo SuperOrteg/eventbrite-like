@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   resources :admin, only: [:index]
   delete '/admin', to: 'users#destroy'
+  get '/admin/events', to: 'admin#show'
 
 end
