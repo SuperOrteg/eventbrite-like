@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   root 'events#index'
   resources :events
   resources :users
+
   resources :events, only: [:show] do
     resources :attendances, only: [:new, :create, :index]
   end
+
   resources :events, only: [:show] do
     resources :images, only: [:create]
   end
+
+  resources :admin, only: [:index]
 
 end

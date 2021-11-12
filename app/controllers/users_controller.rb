@@ -18,8 +18,7 @@ class UsersController < ApplicationController
   private
 
   def is_current_user
-  	@user = current_user
-    unless @user.id.to_i == params[:id].to_i
+    unless current_user.id.to_i == params[:id].to_i || @user.admin == true
       flash[:danger] = "Please log in."
       redirect_to root_path
     end

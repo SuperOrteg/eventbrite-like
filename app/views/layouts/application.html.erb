@@ -21,15 +21,15 @@
     <a class="btn btn-dark me-2" href="<%= user_path(current_user.id)%>" role="button">Mon profil</a>
     <%= button_to "Se déconnecter", destroy_user_session_path, :method => :delete, class: "btn btn-danger me-2" %>
     <% else %>
-    <a class="btn btn-secondary me-2" href="/users/sign_up" role="button">S'inscrire</a>
-    <a class="btn btn-secondary me-2" href="/users/sign_in" role="button">Se connecter</a>
+    <a class="btn btn-dark me-2" href="/users/sign_up" role="button">S'inscrire</a>
+    <a class="btn btn-dark me-2" href="/users/sign_in" role="button">Se connecter</a>
     <% end %>
     <a class="btn btn-warning" href="/events/new" role="button">Poster un event</a>
     </nav>
     </nav>
   <body>
   <% flash.each do |type, msg| %>
-    <div class="alert alert-secondary mb-0 text-center">
+    <div class="alert alert-dark mb-0 text-center">
       <%= msg %>
     </div>
   <% end %>

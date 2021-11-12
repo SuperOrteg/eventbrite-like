@@ -58,8 +58,7 @@ class EventsController < ApplicationController
   end
 
   def is_current_user
-    @user = current_user
-    unless @user.id == Event.find(params[:id]).administrator
+    unless current_user.id == Event.find(params[:id]).administrator || current_user.admin == true
       flash[:danger] = "Please log in."
       redirect_to root_path
     end
