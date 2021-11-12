@@ -43,6 +43,8 @@
                   <td><%= user.description %></td>
                   <td><%= user.email %></td>
                   <td><a href="/users/<%= user.id %>" class="btn btn-primary">Voir</a></td>
+                  <td><a href="/users/<%= user.id %>/edit" class="btn btn-primary">Éditer</a></td>
+                  <td><%= button_to "Supprimer", {:controller => "users", :action => 'destroy', :id => user.id}, :method => :delete, class: "btn btn-danger" %></td>
                 </tr>
                 <% end %>
               </tbody>

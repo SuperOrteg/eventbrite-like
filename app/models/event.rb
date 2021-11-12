@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   has_one_attached :image
-	has_many :attendances
-	has_many :users, through: :attendances
+	has_many :attendances, dependent: :destroy
+	has_many :users, through: :attendances, dependent: :destroy
   belongs_to :administrator, class_name: "User"
 
   validates :start_date, presence: true, if: :is_datetime_passed?

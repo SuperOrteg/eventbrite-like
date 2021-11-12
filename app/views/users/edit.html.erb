@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="jumbotron p-3 p-md-5 text-black rounded bg-light mt-3">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-weight-bold">Modifier user <%= @user.id %></h1>
+		    <%= form_for @user, class: 'my-3' do |f| %>
+
+		    	<%= label_tag 'Prénom' %>
+		      <%= f.text_field :first_name, class: 'form-control' %>
+		      <br />
+
+		      <%= label_tag 'Nom' %>
+		      <%= f.text_field :last_name, class: 'form-control' %>
+		      <br />
+
+		      <%= label_tag 'Description' %>
+		      <%= f.text_field :description, class: 'form-control' %>
+		      <br />
+
+		      <%= label_tag 'Email' %>
+		      <%= f.text_field :email, class: 'form-control' %>
+		      <br />
+
+		      <%= submit_tag "Modifier l'événement", class: 'btn btn-dark mt-3' %>
+		    <% end %>
+        </div>
+      </div>
+	</div>

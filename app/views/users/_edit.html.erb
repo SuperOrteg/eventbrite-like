@@ -1,0 +1,20 @@
+		    <%= form_for @user, class: 'my-3' do |f| %>
+
+		    	<%= label_tag 'Prénom' %>
+		      <%= f.text_field :first_name, class: 'form-control' %>
+		      <br />
+
+		      <%= label_tag 'Nom' %>
+		      <%= f.text_field :last_name, class: 'form-control' %>
+		      <br />
+
+		      <%= label_tag 'Description' %>
+		      <%= f.text_field :description, class: 'form-control' %>
+		      <br />
+
+		      <%= label_tag 'Email' %>
+		      <%= f.text_field :email, class: 'form-control' %>
+		      <br />
+
+		      <%= submit_tag "Modifier l'événement", class: 'btn btn-sm btn-dark mt-3' %>
+		    <% end %>
