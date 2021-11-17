@@ -20,17 +20,8 @@
 	<h2 class="my-4 text-center">Vous n'avez pas d'événements</h2>
 	<% else %>
   	<h2 class="my-4 text-center">Voici vos événements</h2>
-        <div class="row">
-	        <% @event.each do |event| %>
-	        <div class="col-md-6">
-	          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-	          	<div class="card-body">
-	            <h3><%= event.title %></h3>
-	            <p><a class="btn btn-dark" href="<%= event_path(event.id)%>" role="button">Voir l'event »</a></p>
-	            </div>
-	          </div>
-	        </div>
-	        <% end %>
+        <div class="row d-flex justify-content-center">
+        	<%= render "cards" %>
         </div>
     <% end %>
 </div>

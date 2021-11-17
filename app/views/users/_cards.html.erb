@@ -1,5 +1,5 @@
-	<% Event.all.each_with_index do |event, index| %>
-		<div class="card col-4 <% if index == 0 || index == 3 || index == 6 %><% else %>ms-4<% end %> mb-4 p-0" style="width: 20rem;">
+	<% @event.all.each_with_index do |event, index| %>
+		<div class="card col-4 <% if index > 0 || index == 3 || index == 6 %>ms-4<% end %> mb-4 p-0" style="width: 20rem;">
 		  <div class="card-img-top" style="min-height: 180px; background-image: url(<%= url_for(event.image) %>); background-size: cover;"></div>
 		  <div class="card-body wrap">
 		    <h5 class="card-title"><%= event.title %></h5>
