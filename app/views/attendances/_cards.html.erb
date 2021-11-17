@@ -1,0 +1,15 @@
+	<% @event.users.each_with_index do |attendant, index| %>
+		<div class="card col <% if index %2 != 0 %>ms-4<% end %>" style="width: 20rem;">
+		  	<div class="card-body wrap row">
+		  	<div class="col-2 text-center align-middle">
+		  		<img src="https://img.icons8.com/ios-glyphs/30/000000/user-male--v1.png" style="height: 60px;">
+		    </div>
+		    <div class="col">
+			    <h5 class="card-title"><%= attendant.first_name %> <%= attendant.last_name %></h5>
+			    <h6 class="fw-normal text-muted"><%= attendant.email %></h6>
+			    <p class="card-text"><%= attendant.description %></p>
+		    </div>
+		    <a href="#"></a>
+		  </div>
+		</div>
+	<% end %>
