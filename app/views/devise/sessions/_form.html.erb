@@ -1,0 +1,26 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-style'}) do |f| %>
+	<img class="mb-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Eventbrite_logo_2018.png/800px-Eventbrite_logo_2018.png" alt="" width="300" height="85">
+	<h1 class="h3 mb-3 fw-normal">Se connecter</h1>
+
+  <div class="form-floating">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'name@example.com'%>
+    <%= f.label :email %>
+  </div>
+
+  <div class="form-floating">
+    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password' %>
+    <%= f.label :password %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="checkbox mb-3"><br/>
+      <%= f.check_box :remember_me, class: 'form-check-label' %>
+      <%= f.label :remember_me, class: 'form-check-label' %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'w-100 btn btn-lg btn-primary' %>
+  </div>
+  <p class="mt-5 mb-3 text-muted">© 2021</p>
+<% end %>

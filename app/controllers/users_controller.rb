@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(params[:id])
     else
-      flash.now[:alert] = "L'utilisateur n'a pas été modifié ! Veuillez réessayer."
+      flash.now[:error] = "L'utilisateur n'a pas été modifié ! Veuillez réessayer."
       render edit_user_path
     end
   end
@@ -33,10 +33,10 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      flash.now[:alert] = "Félicitations ! Le user a été supprimé !"
+      flash[:success] = "Félicitations ! Le user a été supprimé !"
       redirect_to admin_path
     else
-      flash.now[:alert] = "Le user n'a pas été détruit ! Veuillez réessayer."
+      flash.now[:error] = "Le user n'a pas été détruit ! Veuillez réessayer."
       render user_path
     end
   end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
   def is_current_user
     unless current_user.id.to_i == params[:id].to_i || current_user.admin == true
-      flash[:danger] = "Please log in."
+      flash[:error] = "Please log in."
       redirect_to root_path
     end
   end

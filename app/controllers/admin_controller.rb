@@ -13,7 +13,7 @@ class AdminController < ApplicationController
 
   def is_current_user
     unless current_user.admin == true
-      flash[:danger] = "You do not have the permissions."
+      flash[:error] = "You do not have the permissions."
       redirect_to root_path
     end
   end

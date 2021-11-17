@@ -1,0 +1,5 @@
+  <% flash.each do |type, msg| %>
+    <div class="alert <%= bootstrap_class_for_flash(type) %> mb-0 text-center">
+      <%= msg %>
+    </div>
+  <% end %>

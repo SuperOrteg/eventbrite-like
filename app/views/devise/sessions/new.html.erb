@@ -1,29 +1,6 @@
 <div class="d-flex align-items-center" style="height: 40rem;">
 <div class="text-center container" style="max-width: 330px;">
-      <img class="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Eventbrite_logo_2018.png/800px-Eventbrite_logo_2018.png" alt="" width="300" height="85">
-      <h2 class="h2 mb-3 font-weight-normal">Se connecter</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me, class: 'form-check-label' %>
-      <%= f.label :remember_me, class: 'form-check-label' %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: 'btn btn-lg btn-primary btn-block mt-3' %>
-  </div>
-<% end %>
+<%= render "form" %>
 <%= render "devise/shared/links" %>
 </div>
 </div>

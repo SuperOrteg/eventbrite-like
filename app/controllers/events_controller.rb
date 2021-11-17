@@ -18,10 +18,11 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.administrator = current_user
     if @event.save
-      flash.now[:alert] = "Félicitations ! L'événement a été créé !"
+      @event.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "Card.png")), filename: 'Card.png' , content_type: "image/png")
+      flash[:success] = "Félicitations ! L'événement a été créé !"
       redirect_to root_path
     else
-      flash.now[:alert] = "L'événement n'a pas été créé ! Veuillez réessayer."
+      flash.now[:error] = "L'événement n'a pas été créé ! Veuillez réessayer."
       render new_event_path
     end
   end
@@ -35,7 +36,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to event_path(params[:id])
     else
-      flash.now[:alert] = "L'événement n'a pas été modifié ! Veuillez réessayer."
+      flash.now[:error] = "L'événement n'a pas été modifié ! Veuillez réessayer."
       render edit_event_path
     end
   end
@@ -43,10 +44,10 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     if @event.destroy
-      flash.now[:alert] = "Félicitations ! L'événement a été supprimé !"
+      flash[:success] = "Félicitations ! L'événement a été supprimé !"
       redirect_to root_path
     else
-      flash.now[:alert] = "L'événement n'a pas été détruit ! Veuillez réessayer."
+      flash.now[:error] = "L'événement n'a pas été détruit ! Veuillez réessayer."
       render event_path
     end
   end

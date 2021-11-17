@@ -1,0 +1,14 @@
+	<% Event.all.each_with_index do |event, index| %>
+		<div class="card col <% if index > 0 || index == 3 || index == 6 %>ms-4<% end %> p-0" style="width: 20rem;">
+		  <div class="card-img-top" style="min-height: 180px; background-image: url(<%= url_for(event.image) %>); background-size: cover;"></div>
+		  <div class="card-body wrap">
+		    <h5 class="card-title"><%= event.title %></h5>
+		    <h6 class="fw-normal text-warning fw-bold">15 Nov 2021 à 15h00</h6>
+		    <h6 class="fw-normal text-muted"><%= event.location %></h6>
+		    <p class="card-text"><%= event.description %></p>
+		    <a href="<%= event_path(event.id)%>"></a>
+		    <img src="https://img.icons8.com/ios-glyphs/30/000000/user-male--v1.png" style="height: 25px;">
+		    <span class="fw-bold"><%= event.users.count %> Participants</span>
+		  </div>
+		</div>
+	<% end %>

@@ -44,7 +44,7 @@ class AttendancesController < ApplicationController
   def is_current_user
     @user = current_user
     unless @user.id == Event.find(params[:event_id]).administrator.id
-      flash[:danger] = "You don't have the permissions."
+      flash[:error] = "You don't have the permissions."
       redirect_to root_path
     end
   end

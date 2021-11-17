@@ -1,0 +1,23 @@
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container">
+      <a class="navbar-brand" style="color: #EF5537;" href="/">eventbrite</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+      </div>
+    <% if user_signed_in? %>
+    <a class="btn btn-dark me-2" href="<%= user_path(current_user.id)%>" role="button">Mon profil</a>
+    <%= button_to "Se déconnecter", destroy_user_session_path, :method => :delete, class: "btn btn-danger me-2" %>
+    <% else %>
+    <a class="btn btn-dark me-2" href="/users/sign_up" role="button">S'inscrire</a>
+    <a class="btn btn-dark me-2" href="/users/sign_in" role="button">Se connecter</a>
+    <% end %>
+    <% if user_signed_in? && current_user.admin == false %>
+    <a class="btn btn-warning" href="/admin" role="button">Dashboard Admin</a>
+    <% else %>
+    <a class="btn btn-warning" href="/events/new" role="button">Poster un event</a>
+    <% end %>
+    </div>
+    </nav>
