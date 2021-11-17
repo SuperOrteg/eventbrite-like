@@ -1,0 +1,36 @@
+		    <%= form_for @event, class: 'my-3 form-style' do |f| %>
+		    <h1 class="display-4 font-weight-bold">Créer un événement</h1>
+
+		    <div class="form-floating">
+		      <%= f.text_field :title, class: 'form-control', placeholder: 'Titre' %>
+		      <%= f.label 'Titre' %>
+		      </div>
+
+		      <div class="form-floating">
+		      <%= f.text_field :description, class: 'form-control', placeholder: 'Description' %>
+		      <%= f.label 'Description' %>
+		      </div>
+
+		      <div class="form-floating">
+		      <%= f.number_field :price, class: 'form-control', placeholder: 'Prix' %>
+		      <%= f.label 'Prix' %>
+		      </div>
+
+		      <div class="form-floating">
+		      <%= f.text_field :location, class: 'form-control', placeholder: 'Lieu' %>
+		      <%= f.label 'Lieu' %>
+		      </div>
+
+		      <%= f.file_field :image, class: 'form-control mt-3' %>
+		      <br />
+
+		      <%= label_tag 'Durée' %>
+		      <%= f.select :duration, options_for_select([["5 minutes", 5], ["10 minutes", 10], ["15 minutes", 15], ["20 minutes", 20], ["25 minutes", 25], ["30 minutes", 30], ["35 minutes", 35], ["40 minutes", 40], ["45 minutes", 45], ["50 minutes", 50], ["55 minutes", 55], ["60 minutes", 60]]), class: 'form-control btn-check' %>
+				<br /><br />
+
+			<%= label_tag 'Date' %>
+			<%= f.datetime_select :start_date, :order => [:day, :month, :year], class: 'form-control btn-check' %>
+			<br />
+
+		      <%= submit_tag "Créer l'événement", class: 'btn btn-dark mt-3' %>
+		    <% end %>
